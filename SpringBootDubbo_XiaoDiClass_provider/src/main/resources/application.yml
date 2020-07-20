@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: provider-demo
+    
+server:
+  port: 8088
+    
+dubbo:
+  scan:
+    base-packages: com.asiainfo.service.impl
+  protocol:
+    name: dubbo
+    port: 9090
+  registry:
+    address: N/A
