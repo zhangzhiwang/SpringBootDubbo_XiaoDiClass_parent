@@ -1,0 +1,16 @@
+server:
+  port: 8082
+  
+mybatis:
+  mapper-locations:
+  - classpath:*Mapper.xml
+  type-aliases-package: com.asiainfo
+  configuration:
+    map-underscore-to-camel-case: true
+    
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/test #使用的是docker
+    username: root
+    password: zzw1234

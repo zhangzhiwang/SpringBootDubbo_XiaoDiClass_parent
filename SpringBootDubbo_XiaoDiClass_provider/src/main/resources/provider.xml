@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+	<!-- 配置dubbo应用的名字 -->
+<!-- 	<dubbo:application name="xml_dubbo_provider"></dubbo:application> -->
+	<!-- 配置注册中心 -->
+	<dubbo:registry address="zookeeper://z1:2181,z2:2181,z3:2181"></dubbo:registry>	<!-- "zookeeper://"代表使用zookeeper作为注册中心 -->
+	<!-- 配置dubbo协议 -->
+	<dubbo:protocol name="dubbo" port="7070"></dubbo:protocol>
+	<!-- 配置需要注册到注册中心的服务 -->
+	<dubbo:service interface="com.asiainfo.service.api.IHelloService" ref="helloServiceImpl"></dubbo:service>	<!-- interface：配置暴露的接口全限定名，ref：配置接口的实现类 -->
+	<!-- 配置实现类 -->
+	<bean id="helloServiceImpl" class="com.asiainfo.service.impl.HelloServiceImpl"></bean>
+</beans>

@@ -1,12 +1,11 @@
 package com.asiainfo.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
-
+import org.springframework.stereotype.Service;
 //import org.apache.dubbo.config.annotation.Service;
-
 import com.asiainfo.service.api.IHelloService;
 
-@Service(version = "1.0.0")
+//@Service(version = "1.0.0")// 注意如果要用注解的方式使用dubbo的话这里是dubbo的service注解，version为服务的版本号
+//@Service// 如果要用xml配置的方式使用dubbo那么这里是spring的service注解，或者不实用注解直接在xml里面配置本类的bean
 public class HelloServiceImpl implements IHelloService {
 
 	@Override

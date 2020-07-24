@@ -10,9 +10,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>SpringBootDubbo_XiaoDiClass_zkLock</artifactId>
-	<name>SpringBootDubbo_XiaoDiClass_zkLock</name>
+	<artifactId>SpringBootDubbo_XiaoDiClass_zkLock2</artifactId>
+	<name>SpringBootDubbo_XiaoDiClass_zkLock2</name>
 	<url>http://maven.apache.org</url>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>

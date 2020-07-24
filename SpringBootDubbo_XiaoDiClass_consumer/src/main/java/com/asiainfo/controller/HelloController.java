@@ -11,7 +11,8 @@ import com.asiainfo.service.api.IHelloService;
 @RestController
 @RequestMapping("helloController")
 public class HelloController {
-	@Reference(version = "1.0.0", url = "dubbo://localhost:9090")
+//	@Reference(version = "1.0.0")// 如果用dubbo注解的方式来使用dubbo就不要用@Autowired，要用dubbo提供的@Reference注解，其中version的值要和服务提供者的version一致
+	@Autowired// 如果要用xml配置的方式来使用dubbo就要用@Autowired
 	private IHelloService helloService;
 
 	@GetMapping("/sayHello")

@@ -5,11 +5,15 @@ spring:
 server:
   port: 8088
     
-dubbo:
-  scan:
-    base-packages: com.asiainfo.service.impl
-  protocol:
-    name: dubbo
-    port: 9090
-  registry:
-    address: N/A
+#dubbo:
+#  scan:
+#    base-packages: com.asiainfo.service.impl #扫描标注了dubbo提供的@Service的类
+#  protocol:
+#    name: dubbo #默认为dubbo协议
+#    port: 9090
+#  registry: 
+##    address: N/A  #注册中心地址，N/A使用默认的注册中心——simple注册中心
+#    address: zookeeper://z1:2181?backup=z2:2181,z3:2181  #使用zookeeper作为注册中心必须引入zookeeper的依赖
+#  application: 
+#    name: abc      #dubbo应用的名称，dubbo应用必须要有名称否则启动报错：No application config found or it's not a valid config! Please add <dubbo:application name="..." /> to your spring config.
+#                   #但是在spb中，如果不配置dubbo.application.name，则默认取spring.application.name的值，所以在spb中两者配置其一即可，可以都配置但是不能都不配置，如果都配置则取dubbo.application.name的值作为dubbo应用的名称

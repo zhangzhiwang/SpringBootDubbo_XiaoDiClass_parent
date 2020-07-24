@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -17,17 +19,17 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<dubbo.version>2.7.7</dubbo.version>
+		<dubbo.version>2.7.0</dubbo.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 <!-- 			<dependency> -->
-<!-- 				<groupId>org.apache.dubbo</groupId> -->
-<!-- 				<artifactId>dubbo-dependencies-bom</artifactId> -->
-<!-- 				<version>${dubbo.version}</version> -->
-<!-- 				<type>pom</type> -->
-<!-- 				<scope>import</scope> -->
+<!-- 			<groupId>org.apache.dubbo</groupId> -->
+<!-- 			<artifactId>dubbo-dependencies-bom</artifactId> -->
+<!-- 			<version>${dubbo.version}</version> -->
+<!-- 			<type>pom</type> -->
+<!-- 			<scope>import</scope> -->
 <!-- 			</dependency> -->
 
 			<dependency>
@@ -62,6 +64,8 @@
 		<module>SpringBootDubbo_XiaoDiClass_service_api</module>
 		<module>SpringBootDubbo_XiaoDiClass_provider</module>
 		<module>SpringBootDubbo_XiaoDiClass_consumer</module>
-    <module>SpringBootDubbo_XiaoDiClass_zkLock</module>
-  </modules>
+		<module>SpringBootDubbo_XiaoDiClass_zkLock</module>
+		<module>SpringBootDubbo_XiaoDiClass_zkLock2</module>
+		<module>SpringBootDubbo_XiaoDiClass_zkLock3</module>
+	</modules>
 </project>
