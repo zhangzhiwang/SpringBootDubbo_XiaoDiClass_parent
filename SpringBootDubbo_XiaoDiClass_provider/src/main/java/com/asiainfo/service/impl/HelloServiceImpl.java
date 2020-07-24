@@ -9,7 +9,9 @@ import com.asiainfo.service.api.IHelloService;
 public class HelloServiceImpl implements IHelloService {
 
 	@Override
-	public String hello() {
+	public String hello() throws InterruptedException {
+		System.out.println("hello服务");
+		Thread.sleep(10000);
 		return "Hello World!";
 	}
 

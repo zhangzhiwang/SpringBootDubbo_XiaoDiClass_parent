@@ -8,5 +8,8 @@
 	<!-- 配置dubbo注册中心 -->
 	<dubbo:registry address="zookeeper://z1:2181,z2:2181,z3:2181"></dubbo:registry>
 	<!-- 配置要消费的服务（基于接口） -->
-	<dubbo:reference id="helloService" interface="com.asiainfo.service.api.IHelloService" check="false"></dubbo:reference>
+	<!-- check属性是启动依赖检查，即在启动时检查所依赖（消费）的服务是否可用，如果不可用则抛出异常阻止Spring的初始化，如果设置成false则不进行依赖服务的可用性检查 -->
+	<!-- 服务提供者和消费者同时设置超时时间那么以消费者的超时时间为准，重试次数同理 -->
+	<dubbo:reference id="helloService" interface="com.asiainfo.service.api.IHelloService" check="false" retries="3"></dubbo:reference>
+
 </beans>

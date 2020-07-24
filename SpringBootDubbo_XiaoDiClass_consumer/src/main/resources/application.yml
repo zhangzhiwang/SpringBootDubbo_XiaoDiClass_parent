@@ -10,3 +10,11 @@ server:
 #    address: zookeeper://127.0.0.1:2181
 #  application:
 #    name: zhangzw8
+
+#没如果在每一个依赖的服务那里通过check属性去配置启动检查，那么依赖的服务有很多则每一个服务都要进行相关的配置，比较麻烦。有两种法式统一地对所有历来的服务进行启动检查配置：
+#方式一：dubbo.registry.check，该配置对所有依赖的服务生效且强制执行该配置，即如果该全局配置和口一个服务的check配置冲突以该全局配置为准
+#当时二：dubbo.consumer.check，该配置对所有依赖的服务生效，可以把它看作一个默认值，如果具体依赖的服务没有配置chekc属性则以此配置为准，如果配置了就以具体的服务配置为准
+#dubbo:
+#  registry: 
+#  consumer:
+#    check: true

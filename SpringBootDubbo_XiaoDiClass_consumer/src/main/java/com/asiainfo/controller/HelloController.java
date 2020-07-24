@@ -16,7 +16,7 @@ public class HelloController {
 	private IHelloService helloService;
 
 	@GetMapping("/sayHello")
-	public String sayHello() {
+	public String sayHello() throws InterruptedException {
 		return helloService.hello();
 	}
 }

@@ -12,7 +12,10 @@
 	<!-- 配置dubbo协议 -->
 	<dubbo:protocol name="dubbo" port="7070"></dubbo:protocol>
 	<!-- 配置需要注册到注册中心的服务 -->
-	<dubbo:service interface="com.asiainfo.service.api.IHelloService" ref="helloServiceImpl"></dubbo:service>	<!-- interface：配置暴露的接口全限定名，ref：配置接口的实现类 -->
+	<!-- dubbo集群默认的容错方式是fallover，即失败重试，默认重试2次 -->
+	<dubbo:service interface="com.asiainfo.service.api.IHelloService" ref="helloServiceImpl" timeout="3000" retries="5">	<!-- 服务（类）级别的超时时间 -->
+		<dubbo:method name="hello" timeout="4000"></dubbo:method>	<!-- 方法级别的超时时间，方法级别的超时时间的优先级大于服务（类）级别的优先级 -->
+	</dubbo:service>	<!-- interface：配置暴露的接口全限定名，ref：配置接口的实现类 -->
 	<!-- 配置实现类 -->
 	<bean id="helloServiceImpl" class="com.asiainfo.service.impl.HelloServiceImpl"></bean>
 </beans>
