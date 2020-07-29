@@ -1,5 +1,7 @@
 package com.asiainfo;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 //@Mapper

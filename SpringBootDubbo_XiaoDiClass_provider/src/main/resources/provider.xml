@@ -8,14 +8,22 @@
 	<!-- 配置dubbo应用的名字 -->
 <!-- 	<dubbo:application name="xml_dubbo_provider"></dubbo:application> -->
 	<!-- 配置注册中心 -->
-	<dubbo:registry address="zookeeper://z1:2181,z2:2181,z3:2181"></dubbo:registry>	<!-- "zookeeper://"代表使用zookeeper作为注册中心 -->
-	<!-- 配置dubbo协议 -->
-	<dubbo:protocol name="dubbo" port="7070"></dubbo:protocol>
+<!-- 	<dubbo:registry id="zkCluster" address="zookeeper://z1:2181,z2:2181,z3:2181"></dubbo:registry>	"zookeeper://"代表使用zookeeper作为注册中心 -->
+<!-- 	<dubbo:registry id="zkAlone" address="zookeeper://localhost:2182"></dubbo:registry>	多注册中心 -->
+	<!-- 使用配置中心 -->
+	<dubbo:config-center  address="zookeeper://localhost:2181" ></dubbo:config-center>
+	<!-- 配置dubbo协议，默认是dubbo协议 -->
+<!-- 	<dubbo:protocol name="dubbo" port="7070"></dubbo:protocol> -->
+<!-- 	<dubbo:protocol name="http" port="8888"></dubbo:protocol>	配置多协议 -->
 	<!-- 配置需要注册到注册中心的服务 -->
 	<!-- dubbo集群默认的容错方式是fallover，即失败重试，默认重试2次 -->
-	<dubbo:service interface="com.asiainfo.service.api.IHelloService" ref="helloServiceImpl" timeout="3000" retries="5">	<!-- 服务（类）级别的超时时间 -->
-		<dubbo:method name="hello" timeout="4000"></dubbo:method>	<!-- 方法级别的超时时间，方法级别的超时时间的优先级大于服务（类）级别的优先级 -->
+	<!-- 当服务出现不兼容的升级时要使用版本号来标识，当一个接口有多个实现类的时候要使用分组来标识，因为dubbo只暴露接口，服务提供和和消费者也只针对接口 -->
+	<!-- 如果配置多协议需要指定使用哪个协议 -->
+	<dubbo:service interface="com.asiainfo.service.api.IHelloService" ref="helloServiceImpl" timeout="3000" retries="5" version="10" group="g1"  >	<!-- 服务（类）级别的超时时间 -->
+		<!-- <dubbo:method name="hello" timeout="4000"></dubbo:method> -->	<!-- 方法级别的超时时间，方法级别的超时时间的优先级大于服务（类）级别的优先级 -->
 	</dubbo:service>	<!-- interface：配置暴露的接口全限定名，ref：配置接口的实现类 -->
 	<!-- 配置实现类 -->
 	<bean id="helloServiceImpl" class="com.asiainfo.service.impl.HelloServiceImpl"></bean>
+	<bean id="helloServiceImpl2" class="com.asiainfo.service.impl.HelloServiceImpl2"></bean>
+	<dubbo:service interface="com.asiainfo.service.api.IHelloService" ref="helloServiceImpl2" version="10" group="g2"  ></dubbo:service>	<!-- 一个服务可以使用多协议 -->
 </beans>
