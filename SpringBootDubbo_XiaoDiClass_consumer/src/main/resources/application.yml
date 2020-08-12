@@ -1,9 +1,13 @@
 spring:
-  application:
+  main:
+    allow-bean-definition-overriding: true
+  application: 
     name: consumer-demo
     
 server:
   port: 8090
+  
+
   
 #dubbo: 
 #  registry:
